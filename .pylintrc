@@ -1,0 +1,40 @@
+"""
+Pylint configuration for the University Course Prerequisite Planner project.
+
+This file standardizes linting rules across the codebase and ensures that:
+- long Cypher queries are allowed (max line length = 120)
+- FastAPI and Pydantic patterns do not raise false warnings
+- docstring parameter validation is enabled via docparams
+- non-essential warnings are disabled to improve readability
+
+The goal is to maintain clean, consistent, and maintainable code while
+keeping the linting process aligned with the project’s architecture.
+"""
+
+[MASTER]
+ignore=tests
+extension-pkg-whitelist=pydantic
+load-plugins=pylint.extensions.docparams
+
+[MESSAGES CONTROL]
+disable=
+    missing-docstring,
+    too-few-public-methods,
+    too-many-arguments,
+    too-many-locals,
+    too-many-statements,
+    too-many-branches,
+    invalid-name,
+    fixme,
+    broad-except,
+    logging-fstring-interpolation
+
+[FORMAT]
+max-line-length=120
+
+[REPORTS]
+output-format=colorized
+score=no
+
+[TYPECHECK]
+generated-members=pydantic.*

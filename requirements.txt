@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+neo4j
+pydantic
+pytest
+pytest-cov
+black
+pylint
+httpx
+numpy
+scikit-learn
+joblib
+openai
