@@ -1,5 +1,9 @@
 # University Course Prerequisite Planner
 
+[![Lint](https://github.com/CSEC2023/Final_project_graph/workflows/Lint/badge.svg)](https://github.com/CSEC2023/Final_project_graph/actions)
+[![Test](https://github.com/CSEC2023/Final_project_graph/workflows/Test/badge.svg)](https://github.com/CSEC2023/Final_project_graph/actions)
+[![Docker](https://img.shields.io/docker/pulls/gabrielaidams/prereq-api?logo=docker)](https://hub.docker.com/r/gabrielaidams/prereq-api)
+
 A graph-based academic planning system that helps students explore course prerequisites, plan valid learning paths, and receive data-driven recommendations.
 The application combines Neo4j, FastAPI, Graph Data Science (GDS), Machine Learning, and an optional LLM (Natural Language → Cypher) interface, all orchestrated with Docker Compose.
 
@@ -43,6 +47,15 @@ This project uses the **UIUC Course Prerequisite Dataset**:
 **make docker-run** rebuilds images if needed and starts Neo4j, FastAPI, and Nginx using Docker Compose.
 
 **docker-compose exec api python scripts/seed_data.py** runs the seeding script to load courses and prerequisites into Neo4j.
+
+## Docker Image
+
+The API Docker image is available on Docker Hub:
+
+**https://hub.docker.com/r/gabrielaidams/prereq-api**
+
+Pull the image:
+docker pull gabrielaidams/prereq-api:latest
 
 ## System Architecture
 
@@ -220,12 +233,6 @@ requirement.txt
 demo.ipynb
 .env.example
 
-## Notes & Limitations
-ML model is a baseline (logistic regression)
-LLM queries are strictly read-only
-Dataset quality depends on source CSV consistency
-Designed primarily for educational and exploratory use
-
 ## Team Contributions
 
 ### Commit Statistics
@@ -252,6 +259,15 @@ Designed primarily for educational and exploratory use
 6. [#10 - Add data seeding and ML training scripts](https://github.com/CSEC2023/Final_project_graph/pull/10)
 7. [#11 - Add complete README with screenshots and demo notebook](https://github.com/CSEC2023/Final_project_graph/pull/11)
 
+### Screenshot of Merged Pull Requests
+
+![Merged PRs](screenshots/merged_prs.png)
+
+## Notes & Limitations
+ML model is a baseline (logistic regression)
+LLM queries are strictly read-only
+Dataset quality depends on source CSV consistency
+Designed primarily for educational and exploratory use
 
 ## Conclusion
 This project demonstrates how graph databases, ML, and LLMs can be combined in a modern backend architecture to solve real-world planning problems.
