@@ -30,13 +30,19 @@ This project uses the **UIUC Course Prerequisite Dataset**:
 
 ## How to run the project
 
-*docker rm -f prereq-api* removes the existing API container to start from a clean state.
-*docker rm -f prereq-nginx* removes the existing Nginx container.
-*docker rm -f neo4j* removes the existing Neo4j container (volumes/data are preserved).
+### 1. Clone & setup environment
+**git clone https://github.com/CSEC2023/Final_project_graph.git** clones the project
+**cd Final_project_graph** navigates to the right folder
+**cp .env.example .env** and personnalize the `.env` file with your own values (using a text editor)
 
-*make docker-run* rebuilds images if needed and starts Neo4j, FastAPI, and Nginx using Docker Compose.
+### 2. Run the project (from a clean state)
+**docker rm -f prereq-api** removes the existing API container to start from a clean state.
+**docker rm -f prereq-nginx** removes the existing Nginx container.
+**docker rm -f neo4j** removes the existing Neo4j container (volumes/data are preserved).
 
-*docker-compose exec api python scripts/seed_data.py* runs the seeding script to load courses and prerequisites into Neo4j.
+**make docker-run** rebuilds images if needed and starts Neo4j, FastAPI, and Nginx using Docker Compose.
+
+**docker-compose exec api python scripts/seed_data.py** runs the seeding script to load courses and prerequisites into Neo4j.
 
 ## System Architecture
 
@@ -219,6 +225,33 @@ ML model is a baseline (logistic regression)
 LLM queries are strictly read-only
 Dataset quality depends on source CSV consistency
 Designed primarily for educational and exploratory use
+
+## Team Contributions
+
+### Commit Statistics
+
+| Member  | Commits | Percentage | Pull Requests |
+|---------|---------|------------|---------------|
+| Gabriel | 10      | 56%        | 6 merged      |
+| Octave  | 8       | 44%        | 5 merged      |
+
+**Total**: 18 commits (before last commit of this part)
+
+### Role Distribution
+
+- **Gabriel**: Swagger UI setup, project setup & run instructions, Makefile commands, demonstration of API queries, Docker configuration
+- **Octave**: FastAPI core application, Neo4j database connection, Student/Course endpoints, Analytics & authentication, GDS service, Testing suite, Documentation (README, screenshots, demo notebook)
+
+### Major Pull Requests
+
+1. [#1 - Add FastAPI app and Neo4j connection](https://github.com/CSEC2023/Final_project_graph/pull/1)
+2. [#2 - Add Pydantic models for GDS, ML, LLM](https://github.com/CSEC2023/Final_project_graph/pull/2)
+3. [#4 - Add student eligibility and course path endpoints](https://github.com/CSEC2023/Final_project_graph/pull/4)
+4. [#6 - Add ML prediction and recommendations endpoints](https://github.com/CSEC2023/Final_project_graph/pull/6)
+5. [#8 - Add LLM natural language to Cypher query service](https://github.com/CSEC2023/Final_project_graph/pull/8)
+6. [#10 - Add data seeding and ML training scripts](https://github.com/CSEC2023/Final_project_graph/pull/10)
+7. [#11 - Add complete README with screenshots and demo notebook](https://github.com/CSEC2023/Final_project_graph/pull/11)
+
 
 ## Conclusion
 This project demonstrates how graph databases, ML, and LLMs can be combined in a modern backend architecture to solve real-world planning problems.
